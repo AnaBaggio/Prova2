@@ -13,7 +13,7 @@
             $result = mysqli_query($con,$sql);
             $row = mysqli_fetch_array($result);
         ?>
-        <h1>Consulta de Fluxo de Caixa</h1>
+        <h1>Listagem de Fluxo de Caixa</h1>
         <table align="center" border="1" width="500">
 
             <tr>
@@ -27,21 +27,18 @@
             </tr>
             <?php
                 do{
-                    if($row)
-                    {
-                        echo "<td>".$row['codigo_fluxo_caixa']."</td>";
-                        echo "<td>".$row['data_fluxo_caixa']."</td>";
-                        echo "<td>".$row['tipo_fluxo_caixa']."</td>";
-                        echo "<td>".$row['valor_fluxo_caixa']."</td>";
-                        echo "<td>".$row['historico_fluxo_caixa']."</td>";
-                        echo "<td>".$row['cheque_fluxo_caixa']."</td>";
-                        echo "<td><a href='excluir_fluxo_caixa.php?id_usuario=".$row['id_usuario']."'>Deletar</a></td>";
-                        echo "</tr>";
-                    }
+                    echo "<td>".$row['id']."</td>";
+                    echo "<td>".$row['data']."</td>";
+                    echo "<td>".$row['tipo']."</td>";
+                    echo "<td>".$row['valor']."</td>";
+                    echo "<td>".$row['historico']."</td>";
+                    echo "<td>".$row['cheque']."</td>";
+                    echo "<td><a href='excluir_fluxo_caixa.php?id_fluxo_caixa=".$row['id']."'>Excluir</a></td>";
+                    echo "</tr>";
                 }while($row = mysqli_fetch_array($result))
             ?>
-            <a href = "index.php">Voltar</a>
         </table>
+        <a href = "index.php">Voltar</a>
 
 </body>
 </html>
